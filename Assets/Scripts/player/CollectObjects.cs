@@ -1,106 +1,109 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class CollectObjects : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Transform ObjectPivot;
+    [SerializeField] int objectsCollected = 0;
+    [SerializeField] GameObject pizzaBoxPrefab;
+    [SerializeField] List<GameObject> ObjectsArray = new List<GameObject>();
+
+    [SerializeField] Rig characterRig;
+
+    private void Start()
     {
-        
+        if (characterRig != null)
+            characterRig.weight = 0f;
+
+        objectsCollected = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    public void AddBox(int _noOfBoxes)
-    {
-
-        for (int i = 0; i < _noOfBoxes; i++)
+        if(other.CompareTag("CollectableObject"))
         {
-            var _obj = Instantiate(pizzaBoxPrefab);
-            SetBoxPos(_obj);
+            AddBox(other.gameObject);
         }
 
-        if (pizzasCollected >= 1)
+    }
+    public void AddBox(GameObject _object)
+    {
+        SetObjectPos(_object);
+
+        if (objectsCollected >= 1)
         {
             if (characterRig != null)
                 characterRig.weight = 1f;
-
-            if (upgradeParticleEff != null)
-                upgradeParticleEff.Play();
         }
+    }
+
+    void SetObjectPos(GameObject _box)
+    {
+        _box.tag = "CollectedBox";
+        _box.transform.SetParent(ObjectPivot);
+        _box.transform.localPosition = new Vector3(0f, objectsCollected * .2f, 0f);
+        _box.transform.rotation = Quaternion.Euler(Vector3.zero);
+        ObjectsArray.Add(_box.gameObject);
+
+        objectsCollected++;
     }
 
     public void RemoveBox(int _noOfBoxes)
     {
-        if (pizzasCollected >= 1)
+        if (objectsCollected >= 1)
         {
             for (int i = 0; i < _noOfBoxes; i++)
             {
-                if (pizzasCollected >= 1)
+                if (objectsCollected >= 1)
                 {
-                    Destroy(pizzaBoxeArray[pizzasCollected - 1]);
-                    pizzaBoxeArray.RemoveAt(pizzasCollected - 1);
-                    pizzasCollected--;
+                    Destroy(ObjectsArray[objectsCollected - 1]);
+                    ObjectsArray.RemoveAt(objectsCollected - 1);
+                    objectsCollected--;
                 }
             }
         }
 
     }
 
-    void SetBoxPos(GameObject _box)
-    {
-        _box.tag = "CollectedBox";
-        _box.transform.SetParent(pizzaBoxPivot);
-        _box.transform.localPosition = new Vector3(0f, pizzasCollected * .2f, 0f);
-        _box.transform.rotation = Quaternion.Euler(Vector3.zero);
-        pizzaBoxeArray.Add(_box.gameObject);
 
-
-        pizzasCollected++;
-    }
 
     public void EnbaleBoxPhysics(int _indexFrom)
     {
-        if (pizzasCollected <= 0)
+        if (objectsCollected <= 0)
             return;
 
-        for (int i = pizzasCollected - 1; i >= _indexFrom; i--)
+        for (int i = objectsCollected - 1; i >= _indexFrom; i--)
         {
-            GameObject _box = pizzaBoxeArray[i];
+            GameObject _box = ObjectsArray[i];
 
             _box.transform.parent = null;
             _box.GetComponent<Collider>().isTrigger = false;
             _box.GetComponent<Rigidbody>().isKinematic = false;
             //Destroy(_box, 3f);
-            pizzaBoxeArray.RemoveAt(i);
-            pizzasCollected--;
+            ObjectsArray.RemoveAt(i);
+            objectsCollected--;
         }
     }
 
 
-    public void PizzaDelivary(GameObject _delivaryPos, int _noOfPizzas)
+    public void ReleaseObject(GameObject _delivaryPos, int _noOfPizzas)
     {
-        if (pizzasCollected >= 1)
+        if (objectsCollected >= 1)
         {
             for (int i = 1; i <= _noOfPizzas; i++)
             {
-                if (pizzasCollected >= 1)
+                if (objectsCollected >= 1)
                 {
-                    GameObject _box = pizzaBoxeArray[pizzaBoxeArray.Count - 1];
-                    pizzaBoxeArray.RemoveAt(pizzaBoxeArray.Count - 1);
+                    GameObject _box = ObjectsArray[ObjectsArray.Count - 1];
+                    ObjectsArray.RemoveAt(ObjectsArray.Count - 1);
                     _box.transform.parent = null;
-                    _box.GetComponent<PizzaBox>().moveTowardsPos(_delivaryPos);
-                    pizzasCollected--;
+                    _box.GetComponent<Object>().moveTowardsPos(_delivaryPos);
+                    objectsCollected--;
                 }
 
             }
-
-            audioManager.Play("MoreCashCollected");
 
         }
     }

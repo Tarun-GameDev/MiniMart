@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -9,15 +9,13 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     Collider col;
     [SerializeField] Joystick joyStick;
-    [SerializeField] Transform pizzaBoxPivot;
-    [SerializeField] int pizzasCollected = 1;
-    [SerializeField] Rig characterRig;
+
+
     [SerializeField] Animator animator;
     [SerializeField] float animatorSpeedMultiplier = 1f;
     [SerializeField] float xPos = -2f;
     [SerializeField] float sideMoveSpeed = 1f;
-    [SerializeField] GameObject pizzaBoxPrefab;
-    [SerializeField] List<GameObject> pizzaBoxeArray = new List<GameObject>();
+
 
 
     GameObject delivaryPizzaPos;
@@ -36,16 +34,9 @@ public class PlayerController : MonoBehaviour
         if(col == null)
             col = GetComponent<Collider>();
 
-
-        if(characterRig != null)
-            characterRig.weight = 1f;
-
         audioManager = AudioManager.instance;
 
         animator.SetFloat("speed", animatorSpeedMultiplier);
-
-        pizzasCollected = 1;
-        //LevelManager.instance.currentPizzasCollected = pizzasCollected;
     }
 
     private void FixedUpdate()
@@ -77,15 +68,4 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-    #region powerUps
-    public void IncreaseSpeed(float _multiplier)
-    {
-        moveSpeed += _multiplier;
-        animatorSpeedMultiplier += .1f;
-        animator.SetFloat("speed", animatorSpeedMultiplier);
-        if (powerUpPartcleEff != null)
-            powerUpPartcleEff.Play();
-    }
-    #endregion
 }

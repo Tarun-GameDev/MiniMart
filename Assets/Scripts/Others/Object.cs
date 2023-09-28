@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PizzaBox : MonoBehaviour
+public class Object : MonoBehaviour
 { 
     [SerializeField] Rigidbody rb;
     [SerializeField] float startUpForce = 200f;
