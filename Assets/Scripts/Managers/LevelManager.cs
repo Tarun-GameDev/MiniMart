@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public UIManager uiManager;
 
     public PlayerController player;
+    public PlayerObjectRecSen playerObjectRecSen;
 
     public int currentPizzasCollected = 0;
 

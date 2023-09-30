@@ -9,34 +9,14 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     Collider col;
     [SerializeField] Joystick joyStick;
-
-
     [SerializeField] Animator animator;
-    [SerializeField] float animatorSpeedMultiplier = 1f;
-    [SerializeField] float xPos = -2f;
-    [SerializeField] float sideMoveSpeed = 1f;
 
-
-
-    GameObject delivaryPizzaPos;
-
-    public bool pizzasDelivered = false;
-    bool move = false;
-    AudioManager audioManager;
-
-    [SerializeField] ParticleSystem upgradeParticleEff;
-    [SerializeField] ParticleSystem degradeParticleEff;
-    [SerializeField] ParticleSystem powerUpPartcleEff;
     void Start()
     {
         if(rb == null)
             rb = GetComponent<Rigidbody>();
         if(col == null)
             col = GetComponent<Collider>();
-
-        audioManager = AudioManager.instance;
-
-        animator.SetFloat("speed", animatorSpeedMultiplier);
     }
 
     private void FixedUpdate()
@@ -55,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 _movement = new Vector3(_horz, 0, _verti).normalized;
 
+        animator.SetFloat("Speed", _movement.magnitude);
 
         if(_movement != Vector3.zero)
         {

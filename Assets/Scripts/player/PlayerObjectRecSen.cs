@@ -3,31 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class CollectObjects : MonoBehaviour
+public class PlayerObjectRecSen : MonoBehaviour
 {
-    [SerializeField] Transform ObjectPivot;
-    [SerializeField] int objectsCollected = 0;
-    [SerializeField] GameObject pizzaBoxPrefab;
-    [SerializeField] List<GameObject> ObjectsArray = new List<GameObject>();
-
     [SerializeField] Rig characterRig;
+
+    public Storage _playerStorage;
+    bool rigActive = false;
 
     private void Start()
     {
         if (characterRig != null)
+        {
             characterRig.weight = 0f;
+            rigActive = false;
+        }
+            
 
-        objectsCollected = 0;
     }
 
+    public void ActivateRigCheck()
+    {
+        if(!rigActive) //check for already rig active and if objects added to playerStorage
+        {
+            if (characterRig != null)
+            {
+                characterRig.weight = 1f;
+                rigActive = true;
+            }
+        }
+    }
+
+    public void DeactiveRigCheck()
+    {
+        if (rigActive)//check for already rig Deactive and if objects Removed to playerStorage
+        {
+            if (characterRig != null)
+            {
+                characterRig.weight = 0f;
+                rigActive = false;
+            }
+        }
+    }
+
+
+    //old Code
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("CollectableObject"))
         {
-            AddBox(other.gameObject);
+            if(!_playerStorage.maxCountReached())//if player has still storage space
+            {
+                ICollectable _obj = other.GetComponent<ICollectable>();//getting the refernce of the object
+
+                if(_obj != null)
+                {
+                    _obj.PickUp(_playerStorage.gameObject,_playerStorage.SetPositionAt(),_playerStorage);
+                }
+            }
         }
 
     }
+
     public void AddBox(GameObject _object)
     {
         SetObjectPos(_object);
@@ -112,5 +149,5 @@ public class CollectObjects : MonoBehaviour
     {
         EnbaleBoxPhysics(0);
     }
-
+    */
 }

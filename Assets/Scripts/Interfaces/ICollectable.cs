@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ICollectable
 {
-    void PickUp(GameObject _targetObj);
+    void PickUp(GameObject _parentTran, Vector3 _targetPos, Storage _newStorage);
 
     void Drop(GameObject _targetObj);
 }

@@ -27,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3231904848487183908}
-  m_LocalRotation: {x: 0.17803785, y: -0, z: -0, w: 0.9840237}
-  m_LocalPosition: {x: 0, y: 3.503869, z: -9.366051}
+  m_LocalRotation: {x: 0.24364659, y: -0, z: -0, w: 0.9698641}
+  m_LocalPosition: {x: 0, y: 12.836812, z: -23.936811}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,7 +58,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -1.94
+  near clip plane: 0
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 1
@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
   player: {fileID: 3279537590062283031}
+  playerObjectRecSen: {fileID: 1841520272}
   currentPizzasCollected: 0
 --- !u!1 &3231904849503272138
 GameObject:
@@ -372,7 +373,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_CameraDistance: 27.16164
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -417,15 +418,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3231904850162848327}
-  m_LocalRotation: {x: 0.17803785, y: -0, z: -0, w: 0.9840237}
-  m_LocalPosition: {x: 0, y: 3.503869, z: -9.366051}
+  m_LocalRotation: {x: 0.24364659, y: -0, z: -0, w: 0.9698641}
+  m_LocalPosition: {x: 0, y: 12.836812, z: -23.936811}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3231904849708854197}
   m_Father: {fileID: 3231904848787306167}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 20.511, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.204, y: 0, z: 0}
 --- !u!114 &3231904850162848326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +450,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5.2
-    NearClipPlane: -1.94
+    NearClipPlane: 0
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -471,11 +472,47 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3231904848787306167}
     m_Modifications:
+    - target: {fileID: 990066854, guid: 99cce13608941ff4bbfce37f2a5d139a, type: 3}
+      propertyPath: m_Name
+      value: PlayerStorage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535627144, guid: 99cce13608941ff4bbfce37f2a5d139a, type: 3}
+      propertyPath: m_Name
+      value: CheckForObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535627145, guid: 99cce13608941ff4bbfce37f2a5d139a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535627145, guid: 99cce13608941ff4bbfce37f2a5d139a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004785875494193271, guid: 99cce13608941ff4bbfce37f2a5d139a,
+        type: 3}
+      propertyPath: m_Weight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2740469995871230138, guid: 99cce13608941ff4bbfce37f2a5d139a,
         type: 3}
       propertyPath: joyStick
       value: 
       objectReference: {fileID: 323347922815152207}
+    - target: {fileID: 3762496296109211616, guid: 99cce13608941ff4bbfce37f2a5d139a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.738
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762496296109211616, guid: 99cce13608941ff4bbfce37f2a5d139a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762496296109211616, guid: 99cce13608941ff4bbfce37f2a5d139a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.995
+      objectReference: {fileID: 0}
     - target: {fileID: 3841049565162394800, guid: 99cce13608941ff4bbfce37f2a5d139a,
         type: 3}
       propertyPath: m_Name
@@ -543,6 +580,74 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99cce13608941ff4bbfce37f2a5d139a, type: 3}
+--- !u!114 &466948916741401050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1004785875494193271, guid: 99cce13608941ff4bbfce37f2a5d139a,
+    type: 3}
+  m_PrefabInstance: {fileID: 831856408264090029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &831856407030623781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535627144, guid: 99cce13608941ff4bbfce37f2a5d139a,
+    type: 3}
+  m_PrefabInstance: {fileID: 831856408264090029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1841520273
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831856407030623781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1841520272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831856407030623781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbab3e26cec85d741a5e2f66b4090c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterRig: {fileID: 466948916741401050}
+  _playerStorage: {fileID: 634845655}
+--- !u!1 &831856407576156427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 990066854, guid: 99cce13608941ff4bbfce37f2a5d139a,
+    type: 3}
+  m_PrefabInstance: {fileID: 831856408264090029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &634845655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831856407576156427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad046ae0a4aa49741a7efab4f6fe9371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PosAdder: {x: 0, y: 0.5, z: 0}
+  newPos: {x: 0, y: 0, z: 0}
+  maxStorage: 2
+  StoredObj: 0
+  objects: []
 --- !u!114 &3279537590062283031 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2740469995871230138, guid: 99cce13608941ff4bbfce37f2a5d139a,
@@ -693,6 +798,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fixed Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5eda94a9dcf71e445ad17e3c065d1460,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!224 &323347922815152194 stripped
