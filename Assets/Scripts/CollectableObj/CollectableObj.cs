@@ -12,17 +12,24 @@ public class CollectableObj : MonoBehaviour, ICollectable
     float smootSpeed = 3f;
     float weight = 0f;
     Vector3 startPos;
-    bool moving = false;
+    public GameObject verificationModel;
+    public bool moving = false;
+    public bool Verified = false;
 
     private void Start()
     {
+        weight = 0f;
+
         if(_parentStorage == null)
             _parentStorage = GetComponentInParent<Storage>();
+
+        startPos = transform.localPosition;
+
+        //SetVerification(false);
     }
 
     private void Update()
     {
-
         //move Object smoothly to the targetPos
         if(moving)
         {
@@ -47,20 +54,26 @@ public class CollectableObj : MonoBehaviour, ICollectable
         transform.SetParent(_parentTran.transform);
 
         //move object smoothly
-        startPos = transform.localPosition;
-        targetPos = _targetPos;
-        moving = true;
+        MoveObject(_targetPos);
 
         //rotation
         transform.rotation = _parentTran.transform.rotation;
     }
 
-    public void Drop(GameObject _targetObj)
+    public void SetVerification(bool _verified)
     {
-
+        if (verificationModel != null)
+            verificationModel.SetActive(_verified);
+        Verified = _verified;
     }
     #endregion
 
-
+    public void MoveObject(Vector3 _newPos)
+    {
+        weight = 0f;
+        startPos = transform.localPosition;
+        targetPos = _newPos;
+        moving = true;
+    }
 
 }
