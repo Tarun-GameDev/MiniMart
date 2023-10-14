@@ -203,7 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 0}
   player: {fileID: 3279537590062283031}
-  playerObjectRecSen: {fileID: 0}
 --- !u!1 &3231904849503272138
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +533,16 @@ PrefabInstance:
     - target: {fileID: 6743258154588788165, guid: 99cce13608941ff4bbfce37f2a5d139a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262255517374748578, guid: 99cce13608941ff4bbfce37f2a5d139a,
+        type: 3}
+      propertyPath: PosAdder.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262255517374748578, guid: 99cce13608941ff4bbfce37f2a5d139a,
+        type: 3}
+      propertyPath: PosAdder.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

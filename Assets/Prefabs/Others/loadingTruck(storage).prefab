@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 486767357180860278}
   - component: {fileID: 486767357180860277}
-  - component: {fileID: 486767357180860276}
+  - component: {fileID: 2042164611332175607}
   m_Layer: 0
   m_Name: loadingTruck(storage)
   m_TagString: Untagged
@@ -48,7 +48,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 5}
   m_Center: {x: 0, y: -0.5, z: 0}
---- !u!114 &486767357180860276
+--- !u!114 &2042164611332175607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,12 +57,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 486767357180860266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6c04922322a9c4f9d8fc70c1b31b18, type: 3}
+  m_Script: {fileID: 11500000, guid: 271634bac8eb2b4438ed718515488077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _storage: {fileID: 486767358482621191}
+  _thisStorage: {fileID: 486767358482621191}
+  storeSpecificType: 1
   objectType: 0
-  model: {fileID: 3334788552533363274}
+  checkForVerification: 1
+  NeedVerification: 0
+  receiverStorageFull: 0
+  playerIn: 0
+  model: {fileID: 0}
+  newScale: {x: 1.3, y: 1, z: 1.3}
+  originalScale: {x: 0, y: 0, z: 0}
+  _playerReceiver: {fileID: 0}
 --- !u!1 &486767358482621189
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,9 +234,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.7486183, z: 3.6000001}
   m_Center: {x: 0, y: -0.01698929, z: 0}
---- !u!1 &3334788552533363274 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6303116636865536453, guid: b53b74b2fe4e9c24bac26ae215de9370,
-    type: 3}
-  m_PrefabInstance: {fileID: 486767358087271537}
-  m_PrefabAsset: {fileID: 0}

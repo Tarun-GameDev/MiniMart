@@ -12,7 +12,6 @@ public class UniversalObjectReceiver : MonoBehaviour
     [Header("Tick If the receiver need to check verified or not")]
     public bool checkForVerification = true;
     public bool NeedVerification = false;//Need verificatin for unloading boxes and not need verification for storing in room
-    [HideInInspector]
     public bool receiverStorageFull = false;  //use for not asking every time when player triggered
     [HideInInspector]
     public bool playerIn = false; //tells whether player is still in trigger range or not

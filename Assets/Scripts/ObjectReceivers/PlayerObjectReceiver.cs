@@ -50,6 +50,7 @@ public class PlayerObjectReceiver : UniversalObjectReceiver
             }
                 
         }
+
     }
 
     private void OnTriggerExit(Collider other)

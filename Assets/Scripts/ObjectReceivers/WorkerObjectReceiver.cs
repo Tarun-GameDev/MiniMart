@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class RobotObjectReceiver : UniversalObjectReceiver
+public class WorkerObjectReceiver : UniversalObjectReceiver
 {
     [SerializeField] Rig characterRig;
     bool rigActive = false;
     [SerializeField] WorkerController _controller;
+    [SerializeField]
     bool workerIn = false;
 
     protected new void Start()
@@ -19,14 +20,6 @@ public class RobotObjectReceiver : UniversalObjectReceiver
         {
             characterRig.weight = 0f;
             rigActive = false;
-        }
-    }
-
-    private void Update()
-    {
-        if(workerIn)
-        {
-            _controller.canMove = false;
         }
     }
 
@@ -54,7 +47,7 @@ public class RobotObjectReceiver : UniversalObjectReceiver
         if (other.CompareTag("StoreRoomSender"))
         {
 
-
+            workerIn = true;
             Storage _otherStorage = other.GetComponentInChildren<Storage>();
             if (_otherStorage != null)
             {
@@ -67,12 +60,13 @@ public class RobotObjectReceiver : UniversalObjectReceiver
     {
         if (other.CompareTag("StoreRoomSender"))
         {
+            workerIn = false;
             DisableReceiveingObj();
         }
     }
     #endregion
 
-    #region PlayerReceiver Specific Funitons
+    #region RobotReceiver Specific Funitons
     public void ActivateRigCheck()
     {
         if (!rigActive) //check for already rig active and if objects added to playerStorage
