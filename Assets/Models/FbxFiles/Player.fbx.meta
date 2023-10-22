@@ -38,8 +38,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Failed
-      takeName: Armature|Failed
+      name: Armature.001|Failed
+      takeName: Armature.001|Failed
       internalID: -185734511388527483
       firstFrame: 0
       lastFrame: 143
@@ -67,8 +67,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Fast-Run
-      takeName: Armature|Fast-Run
+      name: Armature.001|Fast-Run
+      takeName: Armature.001|Fast-Run
       internalID: 3148325826470169549
       firstFrame: 0
       lastFrame: 16
@@ -96,8 +96,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Idle
-      takeName: Armature|Idle
+      name: Armature.001|Idle
+      takeName: Armature.001|Idle
       internalID: -8945691123924629249
       firstFrame: 0
       lastFrame: 250
@@ -125,8 +125,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|idle_Breathing
-      takeName: Armature|idle_Breathing
+      name: Armature.001|idle_Breathing
+      takeName: Armature.001|idle_Breathing
       internalID: -1740480143658184272
       firstFrame: 0
       lastFrame: 226
@@ -154,8 +154,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|MoveSide
-      takeName: Armature|MoveSide
+      name: Armature.001|MoveSide
+      takeName: Armature.001|MoveSide
       internalID: 8345727158362985503
       firstFrame: 0
       lastFrame: 14
@@ -183,8 +183,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|runn
-      takeName: Armature|runn
+      name: Armature.001|runn
+      takeName: Armature.001|runn
       internalID: 1029098254384608376
       firstFrame: 0
       lastFrame: 19
@@ -194,14 +194,14 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -212,8 +212,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Running
-      takeName: Armature|Running
+      name: Armature.001|Running
+      takeName: Armature.001|Running
       internalID: -3828583913261678786
       firstFrame: 0
       lastFrame: 19
@@ -241,8 +241,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|TPose
-      takeName: Armature|TPose
+      name: Armature.001|TPose
+      takeName: Armature.001|TPose
       internalID: 5152524018116331999
       firstFrame: 0
       lastFrame: 1
@@ -270,8 +270,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|wide-run
-      takeName: Armature|wide-run
+      name: Armature.001|wide-run
+      takeName: Armature.001|wide-run
       internalID: -7803815251782277767
       firstFrame: 0
       lastFrame: 22
@@ -299,8 +299,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|WinningDance01
-      takeName: Armature|WinningDance01
+      name: Armature.001|WinningDance01
+      takeName: Armature.001|WinningDance01
       internalID: -4080345581562267183
       firstFrame: 0
       lastFrame: 115
@@ -328,8 +328,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|WinningDance02
-      takeName: Armature|WinningDance02
+      name: Armature.001|WinningDance02
+      takeName: Armature.001|WinningDance02
       internalID: 6944553372486927867
       firstFrame: 0
       lastFrame: 142
@@ -562,61 +562,61 @@ ModelImporter:
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Armature
+    - name: Armature.001
       parentName: Player(Clone)
       position: {x: 0.0642352, y: -0.078968644, z: 0.5034239}
       rotation: {x: -0.7984249, y: 0.012508259, z: 0.027995205, w: 0.6013131}
       scale: {x: 1, y: 1, z: 1}
     - name: Pelvis
-      parentName: Armature
-      position: {x: -0, y: 0, z: 2}
+      parentName: Armature.001
+      position: {x: -0, y: 0, z: 1.5786369}
       rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
       scale: {x: 1, y: 1, z: 1}
     - name: Spine01
       parentName: Pelvis
-      position: {x: -0, y: 0.41538095, z: 0}
+      position: {x: -0, y: 0.6332462, z: 0}
       rotation: {x: 0.17180468, y: -0.0037552852, z: -0.018491002, w: 0.98495036}
       scale: {x: 1, y: 1, z: 1}
     - name: spine02
       parentName: Spine01
-      position: {x: -0.000000007363269, y: 0.57272965, z: 0.000000015104888}
+      position: {x: 8.731149e-11, y: 0.57272965, z: -0.000000044499757}
       rotation: {x: 0.15712802, y: 0.0027680774, z: -0.002459504, w: 0.9875713}
       scale: {x: 0.99999994, y: 1, z: 0.9999999}
     - name: spine03
       parentName: spine02
-      position: {x: 0.0000000060535967, y: 0.54735553, z: 0.0000000622822}
+      position: {x: 0.000000013504177, y: 0.5473553, z: -0.000000056927092}
       rotation: {x: 0.15712227, y: 0.0031700665, z: -0.0021476068, w: 0.9875718}
       scale: {x: 0.99999994, y: 0.9999999, z: 1}
     - name: Head
       parentName: spine03
-      position: {x: 0.000000011175871, y: 0.6198529, z: -0.0000000016298145}
+      position: {x: 0.0000000037252903, y: 0.61985266, z: -0.0000002400484}
       rotation: {x: -0.064128354, y: -0.0033224733, z: 0.0031137972, w: 0.9979313}
       scale: {x: 1, y: 0.99999994, z: 1}
     - name: Head_end
       parentName: Head
-      position: {x: -0, y: 1.0568914, z: 0}
+      position: {x: -0, y: 1.2603893, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Sholder.L
       parentName: spine03
-      position: {x: -0.33479708, y: 0.45874745, z: 0.00000008195639}
-      rotation: {x: -0.006043225, y: 0.02487839, z: 0.8755025, w: 0.48253492}
-      scale: {x: 1.0000002, y: 0.9999998, z: 0.9999999}
+      position: {x: -0.14833575, y: 0.409515, z: -0.00000030361116}
+      rotation: {x: -0.0033525208, y: 0.025381252, z: 0.81898326, w: 0.573246}
+      scale: {x: 1.0000001, y: 0.9999998, z: 0.99999994}
     - name: UpperHand.L
       parentName: Sholder.L
-      position: {x: 0.00000014901161, y: 0.4629877, z: -0.00000028358772}
-      rotation: {x: 0.3773675, y: -0.053168092, z: 0.30110607, w: 0.8741293}
-      scale: {x: 0.99999976, y: 1, z: 0.9999998}
+      position: {x: -0.000000044703484, y: 0.619563, z: -0.00000037334394}
+      rotation: {x: 0.37804583, y: -0.0105092935, z: 0.39175585, w: 0.83874804}
+      scale: {x: 1, y: 1, z: 0.9999999}
     - name: LowerHand.L
       parentName: UpperHand.L
-      position: {x: 0.000000011175871, y: 0.9993666, z: 0.00000014901161}
-      rotation: {x: 0.25370628, y: -0.025937166, z: 0.00077704544, w: 0.9669332}
-      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999976}
+      position: {x: -0.000000070780516, y: 0.87004435, z: -0.000000059604645}
+      rotation: {x: 0.26425612, y: -0.025819037, z: 0.00052569207, w: 0.96410674}
+      scale: {x: 1, y: 0.99999994, z: 0.9999999}
     - name: Hand.L
       parentName: LowerHand.L
-      position: {x: 0.000000055879354, y: 0.9662284, z: 0.000000059604645}
-      rotation: {x: 0.038652867, y: 0.13041799, z: -0.007507217, w: 0.99067694}
-      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+      position: {x: 0.0000000037252903, y: 0.7722912, z: -0.000000029802322}
+      rotation: {x: 0.0316787, y: 0.13038881, z: -0.007739016, w: 0.9909265}
+      scale: {x: 1, y: 1, z: 1}
     - name: Hand.L_end
       parentName: Hand.L
       position: {x: -0, y: 0.40192556, z: 0}
@@ -624,24 +624,24 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Sholder.R
       parentName: spine03
-      position: {x: 0.33479705, y: 0.4587473, z: 0.000000088475645}
-      rotation: {x: 0.14441906, y: -0.12125856, z: -0.83101463, w: 0.52331084}
-      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+      position: {x: 0.14833575, y: 0.40951502, z: -0.00000043120235}
+      rotation: {x: 0.15653941, y: -0.105147265, z: -0.77039653, w: 0.6090391}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
     - name: UpperHand.R
       parentName: Sholder.R
-      position: {x: 0.000000029802322, y: 0.46298766, z: -0.000000059604645}
-      rotation: {x: 0.15808575, y: -0.1963945, z: -0.40478724, w: 0.87896836}
-      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+      position: {x: -0.0000003874302, y: 0.619563, z: 0.000000029802322}
+      rotation: {x: 0.13366897, y: -0.21478717, z: -0.49474433, w: 0.8314007}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
     - name: LowerHand.R
       parentName: UpperHand.R
-      position: {x: -0.000000014901161, y: 0.9993663, z: 0.000000014901161}
-      rotation: {x: 0.34998047, y: 0.03857263, z: -0.000025586118, w: 0.93596256}
-      scale: {x: 1, y: 1, z: 0.99999994}
+      position: {x: -0.00000009685755, y: 0.87004405, z: -0.0000001937151}
+      rotation: {x: 0.36018693, y: 0.03844302, z: 0.00037655904, w: 0.93208766}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
     - name: Hand.R
       parentName: LowerHand.R
-      position: {x: -0, y: 0.9662281, z: -0.00000008940697}
-      rotation: {x: 0.06464293, y: 0.12497981, z: -0.0032792336, w: 0.9900458}
-      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+      position: {x: -0.000000067055225, y: 0.7722913, z: 0.00000010430813}
+      rotation: {x: 0.057846338, y: 0.12491018, z: -0.004821574, w: 0.9904686}
+      scale: {x: 1, y: 0.9999999, z: 1}
     - name: Hand.R_end
       parentName: Hand.R
       position: {x: -0, y: 0.40192556, z: 0}
@@ -649,19 +649,19 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: UpperLeg.L
       parentName: Pelvis
-      position: {x: -0.40928587, y: -0.19120395, z: -0.000000083018215}
+      position: {x: -0.40928587, y: 0.012293935, z: -0.000000083018215}
       rotation: {x: -0.117312305, y: 0.060980428, z: 0.98238903, w: 0.13202682}
       scale: {x: 0.9999996, y: 0.9999998, z: 0.99999624}
     - name: LowerLeg.L
       parentName: UpperLeg.L
-      position: {x: 0.0000000037252903, y: 0.739985, z: -0.000000029802322}
-      rotation: {x: -0.42965245, y: 0.05627667, z: -0.021761766, w: 0.90097624}
+      position: {x: 0.000000018626451, y: 0.73998505, z: -0.000000014901161}
+      rotation: {x: -0.44856682, y: 0.055542577, z: -0.02303013, w: 0.89172447}
       scale: {x: 1, y: 1, z: 1}
     - name: Foot.L
       parentName: LowerLeg.L
-      position: {x: -0.00000010430813, y: 0.81903124, z: 0}
-      rotation: {x: 0.688957, y: 0.06644709, z: 0.10046044, w: 0.71472424}
-      scale: {x: 1, y: 1, z: 1.0000001}
+      position: {x: -0.000000037252903, y: 0.6031956, z: 0.000000044703484}
+      rotation: {x: 0.70388806, y: 0.064312056, z: 0.101840466, w: 0.70002437}
+      scale: {x: 1, y: 1, z: 0.99999994}
     - name: Foot.L_end
       parentName: Foot.L
       position: {x: -0, y: 0.56815034, z: 0}
@@ -669,29 +669,29 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: UpperLeg.R
       parentName: Pelvis
-      position: {x: 0.40928587, y: -0.19120395, z: -0.000000083018215}
+      position: {x: 0.40928587, y: 0.012293935, z: -0.000000083018215}
       rotation: {x: 0.10830978, y: 0.054039042, z: 0.983968, w: -0.13098012}
       scale: {x: 0.99999976, y: 0.9999999, z: 0.9999962}
     - name: LowerLeg.R
       parentName: UpperLeg.R
-      position: {x: -0.000000022351742, y: 0.7399851, z: 0}
-      rotation: {x: -0.40470663, y: -0.030773567, z: 0.010004271, w: 0.9138739}
-      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+      position: {x: -0.00000008195639, y: 0.73998505, z: 0.000000029802322}
+      rotation: {x: -0.42390072, y: -0.030290488, z: 0.010729761, w: 0.90513843}
+      scale: {x: 1, y: 1, z: 1.0000001}
     - name: Foot.R
       parentName: LowerLeg.R
-      position: {x: -0.000000059604645, y: 0.8190312, z: -0.000000029802322}
-      rotation: {x: 0.6743198, y: -0.058763687, z: -0.10645421, w: 0.7283592}
-      scale: {x: 1, y: 1, z: 1.0000001}
+      position: {x: 0.000000022351742, y: 0.6031956, z: 0.000000044703484}
+      rotation: {x: 0.689542, y: -0.056503944, z: -0.10767068, w: 0.7139651}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1}
     - name: Foot.R_end
       parentName: Foot.R
       position: {x: -0, y: 0.56815034, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Player.001
+    - name: Player.002
       parentName: Player(Clone)
-      position: {x: 0.088254936, y: -0.098369755, z: 0.6460614}
-      rotation: {x: -0.17184696, y: 0.048976097, z: 0.011235008, w: 0.9838413}
-      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1.0000001}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

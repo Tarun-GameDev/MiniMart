@@ -71,8 +71,8 @@ public class CollectableObj : MonoBehaviour, ICollectable
     public void MoveObject(Vector3 _newPos)
     {
         weight = 0f;
-        startPos = transform.localPosition;
         targetPos = _newPos;
+        startPos = transform.localPosition;
         moving = true;
     }
 

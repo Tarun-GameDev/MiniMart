@@ -21,7 +21,7 @@ public class Object : MonoBehaviour
     public void moveTowardsPos(GameObject _pizzaPosTrigger)
     {
         pizzaPosTrigger = _pizzaPosTrigger;
-        rb.AddForce(transform.up * startUpForce * Time.deltaTime, ForceMode.VelocityChange);
+        //rb.AddForce(transform.up * startUpForce * Time.deltaTime, ForceMode.VelocityChange);
         rb.isKinematic = true;
         canMove = true;
     }

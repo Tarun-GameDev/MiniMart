@@ -5,11 +5,17 @@ using UnityEngine;
 public class Storage : MonoBehaviour
 {
     public Vector3 PosAdder;
+    public bool storeInGrid = false;
+    public Vector3 VerticalPosAdder;
+    public int maxVerticalStorage = 10; //no of objects can store vertically
     public Vector3 newPos;
     public int maxStorage = 3;
     public int StoredObj = 0;
     public List<CollectableObj> objects;
     public Dictionary<ObjectType, List<CollectableObj>> objectLists;
+
+    [SerializeField]
+    int _verticalStored = 1;
 
     private void Start()
     {
@@ -57,7 +63,25 @@ public class Storage : MonoBehaviour
     {
         _obj.PickUp(this.gameObject, newPos, this);
         StoredObj++;
-        newPos += PosAdder;
+        if (storeInGrid)
+        {
+            if(_verticalStored >= (maxVerticalStorage + 1))
+            {
+                newPos -= (PosAdder * maxVerticalStorage) ; //100  
+                newPos += VerticalPosAdder;
+                _verticalStored = 1;
+
+            }
+            else
+            {
+                newPos += PosAdder; //  000 001 002 100 101 102 200 201
+                _verticalStored++;
+            }
+        }
+        else
+        {
+            newPos += PosAdder;
+        }
         objects.Add(_obj);
 
         //check the dictionay contains the specified objecttype
@@ -71,22 +95,30 @@ public class Storage : MonoBehaviour
     #endregion
 
     #region RemovingObjects
-    /*
-    public CollectableObj RemoveObj()
-    {
-        //whenever objects are removed from storage
-        StoredObj--;
-        newPos -= PosAdder;
-        CollectableObj _removedObj = objects[0];
-        objects.Remove(_removedObj);
-        RemoveObjFromDict(_removedObj);
-        return _removedObj;
-    }*/
 
     public void RemoveObj(CollectableObj _Obj)
     {
         StoredObj--;
-        newPos -= PosAdder;
+
+        if (storeInGrid)
+        {
+            if (_verticalStored <= 0)
+            {
+                newPos += (PosAdder * maxVerticalStorage);
+                newPos -= VerticalPosAdder;
+                _verticalStored = maxVerticalStorage;
+            }
+            else
+            {
+                newPos -= PosAdder;
+                _verticalStored--;
+            }
+        }
+        else
+        {
+            newPos -= PosAdder;
+        }
+
         objects.Remove(_Obj);
         RemoveObjFromDict(_Obj);
     }

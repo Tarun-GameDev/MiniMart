@@ -98,8 +98,8 @@ public class UniversalObjectReceiver : MonoBehaviour
                 if (NeedVerification == _collectableObj.Verified)
                 {
                     //add object to this storage
-                    _thisStorage.AddObj(_collectableObj);
                     _otherStorage.RemoveObj(_collectableObj);
+                    _thisStorage.AddObj(_collectableObj);
 
                     OnReceivingObjCalled?.Invoke();
                 }
@@ -124,8 +124,9 @@ public class UniversalObjectReceiver : MonoBehaviour
                 CollectableObj _collectableObj = _list[prevIndex];
 
                 //add object to this storage
-                _thisStorage.AddObj(_collectableObj);
                 _otherStorage.RemoveObj(_collectableObj);
+                _thisStorage.AddObj(_collectableObj);
+
 
                 OnReceivingObjCalled?.Invoke();
             }

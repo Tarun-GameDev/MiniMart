@@ -7,14 +7,14 @@ using UnityEngine.AI;
 public class WorkerController : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform[] targetTransforms;
+    [SerializeField] Vector3[] targetTransforms;
     [SerializeField] Storage workerStorage;
 
     public bool canMove = true;
 
     [SerializeField] Vector3 targetPosition;
     [SerializeField] bool isTargetReached = false;
-    
+    [SerializeField] Animator animator;
 
     int i;
     float dis;
@@ -22,7 +22,6 @@ public class WorkerController : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        Debug.Log("leng" + targetTransforms.Length);
         GetNewTargetPos(true);
     }
 
@@ -30,7 +29,10 @@ public class WorkerController : MonoBehaviour
     {
         if (!canMove)
         {
-            if(i==0)
+
+            animator.SetFloat("Speed", 0f);
+
+            if (i==0)
             {
                 if(workerStorage.maxCountReached())
                 {
@@ -55,6 +57,9 @@ public class WorkerController : MonoBehaviour
             // Move the object towards the target position
             agent.SetDestination(targetPosition);
 
+            //walk animation
+            animator.SetFloat("Speed", agent.velocity.magnitude / agent.speed);
+
             // Check if the object has reached the target position
             dis = Vector3.Distance(transform.position, targetPosition);
             if (dis < 1f)
@@ -62,6 +67,7 @@ public class WorkerController : MonoBehaviour
                 isTargetReached = true;
             }
         }
+
     }
 
     void GetNewTargetPos(bool _Canmove)
@@ -95,9 +101,11 @@ public class WorkerController : MonoBehaviour
                 }
             }
         }*/
+
+
         canMove = _Canmove;
 
-        targetPosition = targetTransforms[i].position;
+        targetPosition = targetTransforms[i];
 
         if (i >= targetTransforms.Length - 1)
             i = 0;
