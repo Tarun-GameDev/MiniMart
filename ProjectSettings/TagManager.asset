@@ -11,6 +11,7 @@ TagManager:
   - VerificationSender
   - StoreRoomSender
   - WorkerSender
+  - UnloadingTruck
   layers:
   - Default
   - TransparentFX

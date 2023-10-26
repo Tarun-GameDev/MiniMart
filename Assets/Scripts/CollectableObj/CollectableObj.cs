@@ -6,6 +6,7 @@ using UnityEngine;
 public class CollectableObj : MonoBehaviour, ICollectable
 {
     public ObjectType objectType = ObjectType.smallBox;
+    [HideInInspector]
     public Storage _parentStorage;
 
     Vector3 targetPos;
@@ -13,6 +14,7 @@ public class CollectableObj : MonoBehaviour, ICollectable
     float weight = 0f;
     Vector3 startPos;
     public GameObject verificationModel;
+    [HideInInspector]
     public bool moving = false;
     public bool Verified = false;
 
