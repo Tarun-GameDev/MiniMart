@@ -52,7 +52,6 @@ public class PlayerObjectReceiver : UniversalObjectReceiver
             {
                 TryReceiveObj(_otherStorage);
             }
-                
         }
 
     }

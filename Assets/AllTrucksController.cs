@@ -4,25 +4,31 @@ using UnityEngine;
 
 public class AllTrucksController : MonoBehaviour
 {
+    [SerializeField] bool UnloadTrucks = true;
     [SerializeField] TruckController[] trucks;
 
     private void Start()
     {
+        trucks = GetComponentsInChildren<TruckController>();
+
         StartCoroutine(SpawnTruck());
     }
 
     IEnumerator SpawnTruck()
     {
-        yield return new WaitForSeconds(5f);
+
         for (int i = 0; i < trucks.Length; i++)
         {
             if(!trucks[i].underLoading)
             {
-                trucks[i].StartUnload();
+                if (UnloadTrucks)
+                    trucks[i].StartUnload();
+                else
+                    trucks[i].StartLoad();
                 break;
             }            
         }
-
+        yield return new WaitForSeconds(5f);
         StartCoroutine(SpawnTruck());
 
     }

@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public UIManager uiManager;
 
     public PlayerController player;
+    public int CollectdCash = 0;
 
     private void Awake()
     {
@@ -25,5 +26,15 @@ public class LevelManager : MonoBehaviour
 
         if (uiManager == null)
             uiManager = FindObjectOfType<UIManager>();
+
+        CollectdCash = PlayerPrefs.GetInt("Cash", 0);
+        uiManager.SetCashText(CollectdCash);
+    }
+
+    public void AddMoney(int _amount)
+    {
+        CollectdCash += _amount;
+        PlayerPrefs.SetInt("Cash", CollectdCash);
+        uiManager.SetCashText(CollectdCash);
     }
 }

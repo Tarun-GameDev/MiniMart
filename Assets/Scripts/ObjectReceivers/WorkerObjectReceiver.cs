@@ -11,6 +11,8 @@ public class WorkerObjectReceiver : UniversalObjectReceiver
     [SerializeField]
     bool workerIn = false;
 
+    Storage _otherStorage;
+
     protected new void Start()
     {
         base.Start(); //call the start function in UniversalObjectReceiver Class
@@ -46,13 +48,20 @@ public class WorkerObjectReceiver : UniversalObjectReceiver
 
         if (other.CompareTag("StoreRoomSender"))
         {
-
             workerIn = true;
-            Storage _otherStorage = other.GetComponentInChildren<Storage>();
+            _otherStorage = other.GetComponentInChildren<Storage>();
             if (_otherStorage != null)
             {
                 TryReceiveObj(_otherStorage);
             }   
+        }
+    }
+
+    public void CheckWhenObjectReceived()
+    {        
+        if (_otherStorage != null)
+        {
+            TryReceiveObj(_otherStorage);
         }
     }
 

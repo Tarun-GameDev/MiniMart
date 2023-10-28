@@ -58,15 +58,21 @@ public class UniversalObjectReceiver : MonoBehaviour
 
     public void ReceiveObj(Storage _otherStorage)
     {
+        //Debug.Log(gameObject.name);
         //ask for storage empty or not
         //PlayerObjectRecSen _playerReceiver = LevelManager.instance.playerObjectRecSen;
         if (!_otherStorage.minCountReached() && !_thisStorage.maxCountReached())
         {
+            //Debug.Log("flkakehoiauh");
             if(storeSpecificType) // stores specific type
             {
                 if (_otherStorage.IsListHasObjects(objectType))
                 {
                     ReceiveObjBy(_otherStorage.GetListByType(objectType), _otherStorage);
+                }
+                else
+                {
+                    receiverStorageFull = true;
                 }
             }
             else //stores all types of objects
@@ -74,6 +80,10 @@ public class UniversalObjectReceiver : MonoBehaviour
                 if(_otherStorage.objects.Count > 0) //which means list contians objects
                 {
                     ReceiveObjBy(_otherStorage.objects, _otherStorage);
+                }
+                else
+                {
+                    receiverStorageFull = true;
                 }
             }
         }
@@ -87,12 +97,14 @@ public class UniversalObjectReceiver : MonoBehaviour
 
     void ReceiveObjBy(List<CollectableObj> _list,Storage _otherStorage)
     {
+
         if (checkForVerification) //if Verification needed
         {
             prevIndex = _list.Count - 1 - indexDecrement;
 
             if (prevIndex >= 0)
             {
+
                 CollectableObj _collectableObj = _list[prevIndex];
 
                 if (NeedVerification == _collectableObj.Verified)

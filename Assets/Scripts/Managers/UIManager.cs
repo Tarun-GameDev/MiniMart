@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-//using SupersonicWisdomSDK;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject levelFailedMenu;
     [SerializeField] GameObject levelCompletedMenu;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] TextMeshProUGUI cashText;
     public static bool gamePaused = false;
 
     public void PauseGame()
@@ -35,7 +36,6 @@ public class UIManager : MonoBehaviour
         levelFailedMenu.SetActive(true);
     }
 
-
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -56,5 +56,10 @@ public class UIManager : MonoBehaviour
     public void NextLevelButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void SetCashText(int cashAmount)
+    {
+        cashText.text = cashAmount.ToString();
     }
 }

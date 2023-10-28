@@ -9,17 +9,27 @@ public class TruckController : MonoBehaviour
     [SerializeField] Storage truckStorage;
     [HideInInspector]
     public bool underLoading = false;
+    public int cashAmountForDelivary = 3;
+
+    ControlManager controlManager;
+
+    private void Start()
+    {
+        if (controlManager == null)
+            controlManager = ControlManager.instance;
+    }
 
     public void StartUnload()
     {
         underLoading = true;
         SpawnObjects();
-        animator.SetTrigger("MoveForward");
-        //spawn object to truck and add them to storage
-        //move the truck
-        //once reached 
-        //start unload (automatic)
-        //
+        animator.SetTrigger("MoveBackward");
+    }
+
+    public void StartLoad()
+    {
+        underLoading = true;
+        animator.SetTrigger("MoveBackward");
     }
 
     void SpawnObjects()
@@ -34,18 +44,37 @@ public class TruckController : MonoBehaviour
         }
     }
 
+    public void CheckForLoadCompleted()
+    {
+        if(truckStorage.maxCountReached()) //objects are loaded into truck and ready for shipping
+        {
+            StartCoroutine(loadCompleted());
+        }
+    }
+
     public void checkForUnloadComplete()
     {
         if (truckStorage.minCountReached())//all objects are unloaded
         {
             StartCoroutine(UnloadedCompleted());
-           
         }
+    }
+
+    IEnumerator loadCompleted()
+    {
+        animator.SetTrigger("MoveForward");
+        for (int i = 0; i < cashAmountForDelivary; i++)
+        {
+            controlManager.spawnCash();
+        }
+        yield return new WaitForSeconds(2f);
+        truckStorage.RemoveAllObjects();
+        underLoading = false;
     }
 
     IEnumerator UnloadedCompleted()
     {
-        animator.SetTrigger("MoveBackward");
+        animator.SetTrigger("MoveForward");
         yield return new WaitForSeconds(2f);
         underLoading = false;
     }

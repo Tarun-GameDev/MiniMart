@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
 
-public class StoreRoomObjectReceiver : UniversalObjectReceiver
+public class TruckObjectReceiver : UniversalObjectReceiver
 {
-    [SerializeField]
-    PlayerObjectReceiver playerReceiver;
-    [SerializeField] WorkerObjectReceiver worker;
+    [SerializeField] TruckController truckController;
+
     protected new void Start()
     {
         base.Start(); //call the start function in UniversalObjectReceiver Class
@@ -15,14 +13,10 @@ public class StoreRoomObjectReceiver : UniversalObjectReceiver
     }
 
     #region Event Funtions
-    void OnObjectReceiving()
+    public void OnObjectReceiving()
     {
-        if (playerIn)
-            worker.CheckWhenObjectReceived();
-        if(playerReceiver != null)
-        {
-            playerReceiver.OnObjectReceiving();
-        }
+        //truckController.checkForUnloadComplete();
+        truckController.CheckForLoadCompleted();
     }
 
     private void OnDestroy()
@@ -32,14 +26,14 @@ public class StoreRoomObjectReceiver : UniversalObjectReceiver
     #endregion
 
     #region Triggering Funitons
+   
     private void OnTriggerEnter(Collider other)
     {
         if (receiverStorageFull)
             return;
 
-        if (other.CompareTag("PlayerSender"))
+        if (other.CompareTag("UnloadingSender"))
         {
-            playerReceiver =  other.GetComponent<PlayerObjectReceiver>();
             Storage _otherStorage = other.GetComponentInChildren<Storage>();
             
             if (_otherStorage != null)
@@ -52,15 +46,15 @@ public class StoreRoomObjectReceiver : UniversalObjectReceiver
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("PlayerSender"))
+        if (other.CompareTag("UnloadingSender"))
         {
             DisableReceiveingObj();
         }
     }
-    #endregion
-
-    #region StoreRoom Specific Funitons
-
+    public void SignalForReceivingObj(Storage _otherStorage)
+    {
+        TryReceiveObj(_otherStorage);
+    }
     #endregion
 
 }

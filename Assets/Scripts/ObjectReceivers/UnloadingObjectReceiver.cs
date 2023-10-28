@@ -5,6 +5,8 @@ using UnityEngine.Animations.Rigging;
 
 public class UnloadingObjectReceiver : UniversalObjectReceiver
 {
+    [SerializeField] TruckController truckController;
+
     protected new void Start()
     {
         base.Start(); //call the start function in UniversalObjectReceiver Class
@@ -14,7 +16,7 @@ public class UnloadingObjectReceiver : UniversalObjectReceiver
     #region Event Funtions
     public void OnObjectReceiving()
     {
-
+        truckController.checkForUnloadComplete();
     }
 
     private void OnDestroy()
@@ -31,7 +33,6 @@ public class UnloadingObjectReceiver : UniversalObjectReceiver
 
         if (other.CompareTag("UnloadingTruck"))
         {
-            Debug.Log("Truck Entered");
             Storage _otherStorage = other.GetComponentInChildren<Storage>();
             if (_otherStorage != null)
             {

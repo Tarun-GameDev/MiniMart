@@ -7,6 +7,7 @@ public class VerificationCenter : MonoBehaviour
     public Storage nonverifiedStorage;
     public Storage verificationStorage;
     public Storage verifiedStorage;
+    [SerializeField] VerifiedObjectReceiver verifiedObjectReceiver;
 
 
     public bool stillVerifying = false;
@@ -54,10 +55,8 @@ public class VerificationCenter : MonoBehaviour
 
 
         yield return new WaitForSeconds(.5f);
-
-        verificationStorage.RemoveObj(_obj);
-        verifiedStorage.AddObj(_obj);
-
+        //send signal to verif
+        verifiedObjectReceiver.SignalForReceivingObj(verificationStorage);
 
         CheckForStorage();
     }

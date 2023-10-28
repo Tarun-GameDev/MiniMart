@@ -7,6 +7,8 @@ public class ExportObjectReceiver : UniversalObjectReceiver
 {
     [SerializeField]
     PlayerObjectReceiver _playerReceiver;
+    [SerializeField]
+    TruckObjectReceiver truckObjectReceiver;
 
     protected new void Start()
     {
@@ -21,6 +23,14 @@ public class ExportObjectReceiver : UniversalObjectReceiver
         {
             _playerReceiver.OnObjectReceiving();
         }
+
+        StartCoroutine(giveSignal());
+    }
+
+    IEnumerator giveSignal()
+    {
+        yield return new WaitForSeconds(0.5f);
+        truckObjectReceiver.SignalForReceivingObj(_thisStorage);
     }
 
     private void OnDestroy()
@@ -56,9 +66,4 @@ public class ExportObjectReceiver : UniversalObjectReceiver
         }
     }
     #endregion
-
-    #region StoreRoom Specific Funitons
-
-    #endregion
-
 }

@@ -25,6 +25,12 @@ public class VerifiedObjectReceiver : UniversalObjectReceiver
     #endregion
 
     #region Triggering Funitons
+
+    public void SignalForReceivingObj(Storage _otherStorage)
+    {
+        TryReceiveObj(_otherStorage);
+    }
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (receiverStorageFull)
@@ -48,7 +54,7 @@ public class VerifiedObjectReceiver : UniversalObjectReceiver
         {
             DisableReceiveingObj();
         }
-    }
+    }*/
     #endregion
 
     #region StoreRoom Specific Funitons
