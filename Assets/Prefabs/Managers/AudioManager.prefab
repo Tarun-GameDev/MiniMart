@@ -44,4 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c3620b3c383534e917c4834cb3dcfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: CashCollected
+    clip: {fileID: 8300000, guid: f778ee8d4ddcae44a994ca0f5f153227, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    SpatialBlend: 0
+    source: {fileID: 0}

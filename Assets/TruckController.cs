@@ -12,11 +12,14 @@ public class TruckController : MonoBehaviour
     public int cashAmountForDelivary = 3;
 
     ControlManager controlManager;
-
+    AudioManager audioManager;
     private void Start()
     {
         if (controlManager == null)
             controlManager = ControlManager.instance;
+
+        if (audioManager == null)
+            audioManager = AudioManager.instance;
     }
 
     public void StartUnload()
@@ -63,6 +66,7 @@ public class TruckController : MonoBehaviour
     IEnumerator loadCompleted()
     {
         animator.SetTrigger("MoveForward");
+        audioManager.Play("CashCollected");
         for (int i = 0; i < cashAmountForDelivary; i++)
         {
             controlManager.spawnCash();
