@@ -62,8 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thisStorage: {fileID: 486767358482621191}
-  storeSpecificType: 1
-  objectType: 0
+  storeSpecificType: 0
+  objectType: 2
   checkForVerification: 1
   NeedVerification: 1
   receiverStorageFull: 0
@@ -119,13 +119,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PosAdder: {x: 0, y: 0, z: -1}
   storeInGrid: 0
-  VerticalPosAdder: {x: 0, y: 0, z: 0}
-  maxVerticalStorage: 10
-  newPos: {x: 0, y: 0, z: 0}
   maxStorage: 3
   StoredObj: 0
   objects: []
-  _verticalStored: 1
+  numXCells: 5
+  numYCells: 5
+  numZCells: 5
+  cellSizeVector: {x: 1, y: 1, z: 1}
 --- !u!1001 &925229310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +133,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 486767357180860278}
     m_Modifications:
+    - target: {fileID: 2187315219118084201, guid: 592dbca3a3c91e749ba11683a7c3a898,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8546669154048560833, guid: 592dbca3a3c91e749ba11683a7c3a898,
         type: 3}
       propertyPath: m_RootOrder

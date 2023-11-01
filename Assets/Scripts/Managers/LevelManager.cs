@@ -10,9 +10,11 @@ public class LevelManager : MonoBehaviour
 
     public PlayerController player;
     public int CollectdCash = 0;
+    public Storage playerStorage;
 
     private void Awake()
     {
+        PlayerPrefs.SetInt("Cash", 1000);
         if (instance == null)
             instance = this;
         else
@@ -34,6 +36,13 @@ public class LevelManager : MonoBehaviour
     public void AddMoney(int _amount)
     {
         CollectdCash += _amount;
+        PlayerPrefs.SetInt("Cash", CollectdCash);
+        uiManager.SetCashText(CollectdCash);
+    }
+
+    public void RemoveMoney(int _amount)
+    {
+        CollectdCash -= _amount;
         PlayerPrefs.SetInt("Cash", CollectdCash);
         uiManager.SetCashText(CollectdCash);
     }

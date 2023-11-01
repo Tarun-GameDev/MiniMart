@@ -132,6 +132,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3315606852858814011}
     m_Modifications:
+    - target: {fileID: 2542902591836198125, guid: b13211face3591648a384929dad68cb8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3134066450677490679, guid: b13211face3591648a384929dad68cb8,
         type: 3}
       propertyPath: correspondingloadingTruck
@@ -196,6 +201,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnloadingDelivaryTruck
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731974075040069106, guid: b13211face3591648a384929dad68cb8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731974075040069110, guid: b13211face3591648a384929dad68cb8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b13211face3591648a384929dad68cb8, type: 3}

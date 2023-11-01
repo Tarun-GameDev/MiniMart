@@ -9,7 +9,6 @@ public class VerificationCenter : MonoBehaviour
     public Storage verifiedStorage;
     [SerializeField] VerifiedObjectReceiver verifiedObjectReceiver;
 
-
     public bool stillVerifying = false;
     //check for verification
 

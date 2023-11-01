@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed = 100f;
+    public float moveSpeed = 100f;
     Rigidbody rb;
     Collider col;
     [SerializeField] Joystick joyStick;

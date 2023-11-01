@@ -23,10 +23,12 @@ public class UniversalObjectReceiver : MonoBehaviour
     public Vector3 originalScale;
 
     public event Action OnReceivingObjCalled;
+    public UniversalObjectReceiver otherObjectReceiver;
 
-
+    Storage otherStorage;
     int prevIndex = 0;
     int indexDecrement = 0;
+
     protected void Start()
     {
         if (model != null)
@@ -43,15 +45,21 @@ public class UniversalObjectReceiver : MonoBehaviour
 
         prevIndex = 0;
         indexDecrement = 0;
-
+        otherStorage = _otherStorage;
         ReceiveObj(_otherStorage);
+    }
 
+    public void RecheckReceiveObj()
+    {
+        if(playerIn)
+            TryReceiveObj(otherStorage);
     }
 
     public void DisableReceiveingObj()
     {
         receiverStorageFull = false;
         playerIn = false;
+        otherStorage = null;
         if (model != null)
             model.transform.localScale = originalScale;
     }
@@ -114,6 +122,8 @@ public class UniversalObjectReceiver : MonoBehaviour
                     _thisStorage.AddObj(_collectableObj);
 
                     OnReceivingObjCalled?.Invoke();
+                    if (otherObjectReceiver != null)
+                        otherObjectReceiver.RecheckReceiveObj();
                 }
                 else //which means 
                 {
@@ -141,6 +151,8 @@ public class UniversalObjectReceiver : MonoBehaviour
 
 
                 OnReceivingObjCalled?.Invoke();
+                if (otherObjectReceiver != null)
+                    otherObjectReceiver.RecheckReceiveObj();
             }
             else
             {

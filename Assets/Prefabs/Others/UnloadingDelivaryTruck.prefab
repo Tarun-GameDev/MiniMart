@@ -99,6 +99,7 @@ MonoBehaviour:
   objectPrefab: {fileID: 8731974075040069111}
   truckStorage: {fileID: 787463015691544400}
   underLoading: 0
+  cashAmountForDelivary: 3
 --- !u!95 &6217324398016732231
 Animator:
   serializedVersion: 5
@@ -182,13 +183,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PosAdder: {x: 0, y: 0, z: 0}
   storeInGrid: 0
-  VerticalPosAdder: {x: 0, y: 0, z: 0}
-  maxVerticalStorage: 10
-  newPos: {x: 0, y: 0, z: 0}
   maxStorage: 3
   StoredObj: 0
   objects: []
-  _verticalStored: 1
+  numXCells: 5
+  numYCells: 5
+  numZCells: 5
+  cellSizeVector: {x: 1, y: 1, z: 1}
 --- !u!1001 &5443459576939156183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,6 +336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CourierBox_sampleType
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368873621521611812, guid: bc520314dc924d649b640490d77acfde,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc520314dc924d649b640490d77acfde, type: 3}

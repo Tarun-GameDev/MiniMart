@@ -8,9 +8,8 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] GameObject playingMenu;
-    [SerializeField] GameObject levelFailedMenu;
-    [SerializeField] GameObject levelCompletedMenu;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject upgradesMenu;
     [SerializeField] TextMeshProUGUI cashText;
     public static bool gamePaused = false;
 
@@ -30,27 +29,22 @@ public class UIManager : MonoBehaviour
         gamePaused = false;
     }
 
-    public void LevelFailed()
+    public void UpgradesButton()
     {
         playingMenu.SetActive(false);
-        levelFailedMenu.SetActive(true);
+        upgradesMenu.SetActive(true);
+
+    }
+
+    public void UpgradesCancelButton()
+    {
+        playingMenu.SetActive(true);
+        upgradesMenu.SetActive(false);
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void LevelCompleted()
-    {
-        StartCoroutine(LevelCompleteActive());
-    }
-
-    IEnumerator LevelCompleteActive()
-    {
-        yield return new WaitForSeconds(2f);
-        levelCompletedMenu.SetActive(true);
-        playingMenu.SetActive(false);
     }
 
     public void NextLevelButton()

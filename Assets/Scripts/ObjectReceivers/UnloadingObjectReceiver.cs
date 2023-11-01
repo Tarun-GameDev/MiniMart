@@ -17,6 +17,7 @@ public class UnloadingObjectReceiver : UniversalObjectReceiver
     public void OnObjectReceiving()
     {
         truckController.checkForUnloadComplete();
+        //ask for 
     }
 
     private void OnDestroy()

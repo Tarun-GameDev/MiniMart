@@ -10,6 +10,7 @@ public class TruckController : MonoBehaviour
     [HideInInspector]
     public bool underLoading = false;
     public int cashAmountForDelivary = 3;
+    public bool unloadingTruck = true;
 
     ControlManager controlManager;
     AudioManager audioManager;
@@ -20,6 +21,9 @@ public class TruckController : MonoBehaviour
 
         if (audioManager == null)
             audioManager = AudioManager.instance;
+
+
+        StartCoroutine(checkForLoadUnloadCompleted());
     }
 
     public void StartUnload()
@@ -45,6 +49,21 @@ public class TruckController : MonoBehaviour
                 truckStorage.AddObj(_obj);
             }
         }
+    }
+
+    IEnumerator checkForLoadUnloadCompleted()
+    {
+        if(underLoading)
+        {
+            if (unloadingTruck)
+                checkForUnloadComplete();
+            else
+                CheckForLoadCompleted();
+        }    
+
+        yield return new WaitForSeconds(5f);
+
+        StartCoroutine(checkForLoadUnloadCompleted());
     }
 
     public void CheckForLoadCompleted()

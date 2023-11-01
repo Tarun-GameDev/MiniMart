@@ -5,19 +5,29 @@ using UnityEngine;
 public class AllTrucksController : MonoBehaviour
 {
     [SerializeField] bool UnloadTrucks = true;
-    [SerializeField] TruckController[] trucks;
+    [SerializeField] List<TruckController> AllTrucks;
+    [SerializeField] List<GameObject> AllTrucksGameobj;
+    [SerializeField]
+    List<TruckController> trucks;    
+    [SerializeField]
+    int unlockedTrucks = 1;
+    [SerializeField] AllTrucksController loadingTruckController;
 
     private void Start()
     {
-        trucks = GetComponentsInChildren<TruckController>();
+        unlockedTrucks = PlayerPrefs.GetInt("UnlockedTruckSotrage", 1);
 
+        for (int i = 0; i < unlockedTrucks; i++)
+        {
+            trucks.Add(AllTrucks[i]);
+            AllTrucksGameobj[i].gameObject.SetActive(true);
+        }
         StartCoroutine(SpawnTruck());
     }
 
     IEnumerator SpawnTruck()
     {
-
-        for (int i = 0; i < trucks.Length; i++)
+        for (int i = 0; i < trucks.Count; i++)
         {
             if(!trucks[i].underLoading)
             {
@@ -30,15 +40,27 @@ public class AllTrucksController : MonoBehaviour
         }
         yield return new WaitForSeconds(5f);
         StartCoroutine(SpawnTruck());
-
     }
 
-    //check for other active trucks
+    public bool CanAddTruckStorage()
+    {
+        bool canAdd = false;
+        if (unlockedTrucks < AllTrucks.Count)
+        {
+            canAdd = true;
+            unlockedTrucks++;
+            if(UnloadTrucks)
+                PlayerPrefs.SetInt("UnlockedTruckSotrage", unlockedTrucks);
+            AllTrucksGameobj[unlockedTrucks-1].SetActive(true);
+            trucks.Add(AllTrucks[unlockedTrucks]);
+            if (loadingTruckController != null)
+                loadingTruckController.CanAddTruckStorage();
+        }
+        else
+        {
+            canAdd = false;
+        }
 
-    //spawn trucks based on time interval
-
-    //spawn trucks wherver empty found
-
-    //spawn loading truck and unloading truck simltaneoul
-
+        return canAdd;
+    }
 }

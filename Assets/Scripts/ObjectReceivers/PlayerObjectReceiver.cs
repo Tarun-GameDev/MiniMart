@@ -8,6 +8,7 @@ public class PlayerObjectReceiver : UniversalObjectReceiver
     [SerializeField] Rig characterRig;
     bool rigActive = false;
     [SerializeField] VerificationCenter verificationCenter;
+
     protected new void Start()
     {
         base.Start(); //call the start function in UniversalObjectReceiver Class
